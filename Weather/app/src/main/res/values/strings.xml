@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="name_search">Search</string>
+    <string name="forecast">next day</string>
+    <string name="temp_max">max</string>
+    <string name="temp_min">min</string>
 
+    <string name="daily_channel">daily channel</string>
+    <string name="daily_description">this is the daily weather announcement channel </string>
 </resources>
