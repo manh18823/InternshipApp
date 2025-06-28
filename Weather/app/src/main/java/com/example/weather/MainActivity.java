@@ -3,6 +3,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -26,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.weather.Adapter.ForecastAdapter;
 import com.example.weather.Adapter.PlacesAdapter;
+import com.example.weather.Models.ForecastItem;
 import com.example.weather.Models.Sys;
 import com.example.weather.Receiver.WeatherNotifyReceiver;
 import com.example.weather.Utils.SearchHistoryManager;
@@ -48,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
     SearchView searchView;
     private WeatherUIComponents ui;
     private String placeName;
-
-//    private ForecastAdapter forecastAdapter;
-//    private RecyclerView resForecast;
+    private ForecastAdapter forecastAdapter;
+    private RecyclerView resForecast;
+    private ImageView actionMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,13 +75,27 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.lottieAnimationView),
                 findViewById(R.id.main)
         );
+        actionMenu = findViewById(R.id.action_menu);
+        resForecast = findViewById(R.id.res_forecast);
+        resForecast.setLayoutManager(new LinearLayoutManager(this));
+        resForecast.setFocusable(false);
+        resForecast.setNestedScrollingEnabled(false);
+
+        forecastAdapter = new ForecastAdapter();
+        resForecast.setAdapter(forecastAdapter);
+        resForecast.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+
         String incomingPlace = getIntent().getStringExtra("place_name");
+        Log.d("PLACES", "Clicked place: " + incomingPlace);
         if (incomingPlace != null && !incomingPlace.isEmpty()) {
             placeName = incomingPlace;
         }else{
             placeName = "Nam Dinh";
         }
         WeatherUtils.callApiUI(this, placeName, ui);
+        WeatherUtils.callForecastList(placeName, forecastItems -> {
+            forecastAdapter.setData(forecastItems);
+        });
         setDailyAlarm();
         searchView = findViewById(R.id.search_view);
         layout = findViewById(R.id.drawer_layout);
@@ -94,12 +110,13 @@ public class MainActivity extends AppCompatActivity {
         searchHistoryManager = new SearchHistoryManager(this);
         placesAdapter = new PlacesAdapter(searchHistoryManager.getSearchHistory());
         resLocation.setAdapter(placesAdapter);
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        resLocation.addItemDecoration(itemDecoration);
+        resLocation.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         placesAdapter.setRecyclerViewInterface((place) -> {
-//            Log.d("PLACES", "Clicked place: " + place);
             WeatherUtils.callApiUI(this, place, ui);
+            WeatherUtils.callForecastList(place, forecastItems -> {
+                forecastAdapter.setData(forecastItems);
+            });
             layout.closeDrawer(GravityCompat.START);
         });
 
@@ -120,7 +137,16 @@ public class MainActivity extends AppCompatActivity {
                 });
         itemTouchHelper.attachToRecyclerView(resLocation);
 
-
+        ImageView iv_setting = headerView.findViewById(R.id.img_setting);
+        iv_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                startActivity(intent);
+            }
+        });
     }
 
     private void searchLocation() {
@@ -131,12 +157,25 @@ public class MainActivity extends AppCompatActivity {
               placesAdapter.updateData(searchHistoryManager.getSearchHistory());
               placeName = query;
               WeatherUtils.callApiUI(MainActivity.this, placeName, ui);
+              WeatherUtils.callForecastList(placeName, forecastItems -> {
+                  forecastAdapter.setData(forecastItems);
+              });
               setDailyAlarm();
+              actionMenu.setClickable(true);
+              actionMenu.setAlpha(1f);
+              searchView.clearFocus();
               return true;
           }
 
           @Override
           public boolean onQueryTextChange(String newText) {
+              if(newText.isEmpty()){
+                  actionMenu.setClickable(true);
+                  actionMenu.setAlpha(1f);
+              }else{
+                  actionMenu.setClickable(false);
+                  actionMenu.setAlpha(0.5f);
+              }
               return true;
           }
       });

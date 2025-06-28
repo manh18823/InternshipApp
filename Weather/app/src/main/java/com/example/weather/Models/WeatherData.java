@@ -16,5 +16,4 @@ public class WeatherData {
     public long id;
     public String name;
     public int cod;
-    public String dt_txt;
 }

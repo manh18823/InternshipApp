@@ -1,5 +1,6 @@
 package com.example.weather.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder>{
-
-    private List<ForecastItem> forecastList = new ArrayList<>();
-
-
+    private List<ForecastItem> forecastList;
     public void setData(List<ForecastItem> list) {
         this.forecastList = list;
         notifyDataSetChanged();
@@ -38,10 +36,9 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         if (item == null) return;
 
         holder.nextDay.setText(item.nextDay);
-        holder.tempMin.setText(String.format("Min: %.1f°C", item.tempMin));
-        holder.tempMax.setText(String.format("Max: %.1f°C", item.tempMax));
+        holder.tempMin.setText(String.format("%.1f°C", item.tempMin));
+        holder.tempMax.setText(String.format("%.1f°C", item.tempMax));
         WeatherUtils.changeIconFromWeatherCondition(holder.imgForecastWeather, item.condition);
-
     }
 
     @Override

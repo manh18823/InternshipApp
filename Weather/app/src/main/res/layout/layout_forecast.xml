@@ -1,54 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="12dp">
+    android:layout_height="wrap_content"
+    style="@style/ForecastCardStyle">
 
     <LinearLayout
         android:id="@+id/forecast"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        style="@style/ForecastRootLayout">
         <TextView
             android:id="@+id/day_next"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/forecast"
-            android:layout_weight="0.5"
-            android:textSize="25sp"
-            android:gravity="center_vertical"
-            android:textStyle="bold"/>
+            style="@style/ForecastDayText"
+            android:text="@string/forecast"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end">
+            style="@style/ForecastTempContainer">
 
             <ImageView
                 android:id="@+id/img_forecast_weather"
-                android:layout_width="28dp"
-                android:layout_height="28dp"/>
+                style="@style/ForecastWeatherIcon"/>
 
             <TextView
                 android:id="@+id/tv_max"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/temp_max"
-                android:textSize="25sp"
-                android:layout_marginStart="5dp"/>
+                style="@style/ForecastTempText"
+                android:text="@string/temp_max"/>
 
             <TextView
                 android:id="@+id/tv_min"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/temp_min"
-                android:textSize="25sp"
-                android:layout_marginStart="5dp"/>
+                style="@style/ForecastTempText"
+                android:text="@string/temp_min"/>
         </LinearLayout>
 
 
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
