@@ -12,26 +12,14 @@
         android:gravity="end">
         <TextView
             android:id="@+id/txt_placeName"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Quản lý vị trí"
-            android:layout_weight="0.5"
-            android:textSize="25sp"
-            android:gravity="center_vertical"
-            android:textStyle="bold"/>
-
+            style="@style/TitleText_Bold"
+            android:text="Quản lý vị trí" />
 
         <ImageView
             android:id="@+id/img_setting"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:padding="10dp"
-            android:scaleType="centerInside"
+            style="@style/IconImageView"
             android:src="@drawable/setting"
-            android:clickable="true"
-            android:focusable="true"
             android:contentDescription="setting"/>
-
 
     </LinearLayout>
 
@@ -41,7 +29,9 @@
         android:layout_below="@id/icon_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
     <LinearLayout
+        android:id="@+id/note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -49,17 +39,11 @@
         android:layout_below="@id/res_location">
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/note"
-            android:layout_marginEnd="5dp"/>
+            style="@style/NoteIcon"
+            android:src="@drawable/note" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bạn có thể kéo sang phải để xóa location!"
-            android:textSize="15sp"
-            android:textColor="@color/txt_note" />
+            style="@style/NoteText"
+            android:text="Bạn có thể kéo sang phải để xóa location!"/>
     </LinearLayout>
-
 
 </RelativeLayout>
