@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Recruiter Illustration -->
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/recruiter_illustration"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tvWelcomeRecruiter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome, Recruiter"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#222222"
+        android:layout_marginBottom="32dp" />
+
+    <LinearLayout
+        android:id="@+id/btnScheduleInterviewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/rounded_button_primary"
+        android:paddingHorizontal="16dp">
+
+        <ImageView
+            android:id="@+id/btnScheduleIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_schedule"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/btnScheduleInterview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Schedule Interview"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/btnChatStudentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button_primary">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_chat"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat with student"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnLogoutRecruiterContainer"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button_danger">>
+
+        <ImageView
+            android:id="@+id/btnLogoutIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_logout"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/btnLogoutRecruiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">InternshipApp</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="recruiter">Recruiter</string>
+    <string name="student">Student</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="full_name">Full Name</string>
+    <string name="welcome_student">Welcome Student</string>
+    <string name="welcome_recruiter">Welcome Recruiter</string>
+    <string name="logout">Logout</string>
+    <string name="view_internships">View Internships</string>
+    <string name="view_application_history">View Application History</string>
+    <string-array name="fields">
+        <item>All</item>
+        <item>IT</item>
+        <item>Language</item>
+        <item>Banking</item>
+    </string-array>
+
+    <string-array name="sort_options">
+        <item>Date (Newest First)</item>
+        <item>Date (Oldest First)</item>
+    </string-array>
+</resources>

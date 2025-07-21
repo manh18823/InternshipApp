@@ -1,0 +1,91 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Tin nhắn trái (recruiter) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:visibility="gone"
+        android:id="@+id/leftContainer">
+
+        <!-- Avatar trái -->
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/recruiter_illustration"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_background"/>
+
+        <!-- Khung nội dung trái -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_left"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/leftName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#555555"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/leftMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tin nhắn phải (student) -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:visibility="gone"
+        android:id="@+id/rightContainer">
+
+        <!-- Khung nội dung phải -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_right"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/rightName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/rightMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <!-- Avatar phải -->
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/student_illustration"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_background"/>
+    </LinearLayout>
+</LinearLayout>
