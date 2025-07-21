@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <!-- Splash -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.internshipapp.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splash_to_login"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splash_to_studentHome"
+            app:destination="@id/studentHomeFragment" />
+        <action
+            android:id="@+id/action_splash_to_recruiterHome"
+            app:destination="@id/recruiterHomeFragment" />
+    </fragment>
+
+    <!-- Login -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.internshipapp.LoginFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_login_to_studentHome"
+            app:destination="@id/studentHomeFragment" />
+        <action
+            android:id="@+id/action_login_to_recruiterHome"
+            app:destination="@id/recruiterHomeFragment" />
+    </fragment>
+
+    <!-- Register -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.internshipapp.RegisterFragment"
+        android:label="Register">
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Student Home -->
+    <fragment
+        android:id="@+id/studentHomeFragment"
+        android:name="com.example.internshipapp.StudentHomeFragment"
+        android:label="Student Home">
+        <action
+            android:id="@+id/action_studentHome_to_internshipListFragment"
+            app:destination="@id/internshipListFragment" />
+        <action
+            android:id="@+id/action_studentHome_to_applicationHistoryFragment"
+            app:destination="@id/applicationHistoryFragment" />
+    </fragment>
+
+    <!-- Recruiter Home -->
+    <fragment
+        android:id="@+id/recruiterHomeFragment"
+        android:name="com.example.internshipapp.RecruiterHomeFragment"
+        android:label="Recruiter Home">
+
+        <action
+            android:id="@+id/action_recruiterHome_to_interviewScheduleFragment"
+            app:destination="@id/interviewScheduleFragment" />
+        <action
+            android:id="@+id/action_recruiterHome_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+
+    <!-- Internship List -->
+    <fragment
+        android:id="@+id/internshipListFragment"
+        android:name="com.example.internshipapp.InternshipListFragment"
+        android:label="Internship List">
+        <action
+            android:id="@+id/action_internshipListFragment_to_internshipDetailFragment"
+            app:destination="@id/internshipDetailFragment" />
+    </fragment>
+
+    <!-- Internship Detail -->
+    <fragment
+        android:id="@+id/internshipDetailFragment"
+        android:name="com.example.internshipapp.InternshipDetailFragment"
+        android:label="Internship Detail">
+        <action
+            android:id="@+id/action_internshipDetailFragment_to_mapSingleFragment"
+            app:destination="@id/mapSingleFragment" />
+        <action
+            android:id="@+id/action_internshipDetailFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapSingleFragment"
+        android:name="com.example.internshipapp.MapSingleFragment"
+        android:label="Map" >
+    </fragment>
+    <fragment
+        android:id="@+id/applicationHistoryFragment"
+        android:name="com.example.internshipapp.ApplicationHistoryFragment"
+        android:label="Application History">
+
+        <action
+            android:id="@+id/action_applicationHistory_to_interviewScheduleFragment"
+            app:destination="@id/interviewScheduleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/interviewScheduleFragment"
+        android:name="com.example.internshipapp.InterviewScheduleFragment"
+        android:label="Interview Schedule" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.internshipapp.ChatFragment"
+        android:label="Chat" />
+</navigation>
